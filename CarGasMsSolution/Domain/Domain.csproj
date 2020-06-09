@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DieselCarDataAccess\DieselCarDataAccess.csproj" />
+    <ProjectReference Include="..\GasCarDataAccess\GasCarDataAccess.csproj" />
     <ProjectReference Include="..\KafkaService\KafkaService.csproj" />
   </ItemGroup>
 
