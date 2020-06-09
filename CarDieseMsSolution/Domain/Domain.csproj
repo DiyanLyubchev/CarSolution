@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DieselCarDataAccess\DieselCarDataAccess.csproj" />
+    <ProjectReference Include="..\KafkaService\KafkaService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Kafka\" />
+  </ItemGroup>
+
+</Project>
