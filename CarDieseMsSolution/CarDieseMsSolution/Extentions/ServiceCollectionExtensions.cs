@@ -1,5 +1,6 @@
 ﻿using Domain.Application;
 using Domain.Factory;
+using Domain.Kafka;
 using KafkaService;
 using KafkaService.Common;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,7 @@ namespace CarDieseMsSolution.Extentions
         {
             services.AddScoped<IFactory, Factory>();
             services.AddScoped<ICarManager, CarManager>();
-
+            services.AddScoped<IKafkaConsumer, DieselCarKafkaConsumer>();
             return services;
         }
 
