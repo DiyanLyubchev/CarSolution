@@ -30,10 +30,10 @@ namespace Domain.Adaptors
             };
         }
 
-        public List<CarViewModel> MappCarViewModel(List<KpCarModel> list)
+        public List<KpCarModel> MappCarViewModel(List<CarViewModel> list)
         {
             return list.Select(
-                car => new CarViewModel
+                car => new KpCarModel
                 {
                     CarBrand = car.CarBrand,
                     CarModel = car.CarModel,
