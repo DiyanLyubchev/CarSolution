@@ -1,0 +1,45 @@
+﻿@model Domain.Model.CarViewModel
+@{
+    ViewData["Title"] = "NewCar";
+}
+
+<h1>Нова Кола</h1>
+<body style="background-color:white">
+    <form asp-action="NewCar" asp-controller="Home" method="post">
+        <div class="row">
+            <div class="col-xs-3">
+                <input asp-for="CarBrand" class="form-control" required minlength="3" maxlength="60" placeholder="Марка кола" />
+                <br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <input asp-for="CarModel" class="form-control" required minlength="3" maxlength="60" placeholder="Модел кола" />
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <select required asp-for="EngineType" class="browser-default custom-select custom-select-lg mb-3">
+                    <option value="">Избери тип двигател</option>
+                    <option value="Gas">Бензин</option>
+                    <option value="Diesel">Дизел</option>
+                    <option value="DieselAndGas">Дизел и Бензин</option>
+                </select>
+                <br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <button type="submit" class="btn alert-success">Добави кола</button>
+                <br />
+                <strong>
+                    <a style="color:green" href="javascript.go(-1)" title="Бърни се на предходната страница">Назад</a>
+                </strong>
+            </div>
+        </div>
+    </form>
+</body>
+

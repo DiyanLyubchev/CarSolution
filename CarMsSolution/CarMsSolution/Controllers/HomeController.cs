@@ -5,19 +5,54 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CarMsSolution.Models;
+using Domain.Application;
+using Domain.Model;
 
 namespace CarMsSolution.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ICarManager carManager;
+
+        public HomeController(ICarManager carManager)
+        {
+            this.carManager = carManager;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            try
+            {
+                var allCars = await this.carManager.GetCarsAsync();
+                return View(allCars);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult NewCar()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public async Task<IActionResult> NewCar(CarViewModel car)
         {
-            return View();
+            try
+            {
+                await this.carManager.AddNewCarAsync(car);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
