@@ -36,7 +36,18 @@ namespace KafkaManagerService
 
         public ICarGasService GetCarGasService()
         {
-            throw new NotImplementedException();
+            KafkaConsumerMenager consumerMenager = kafkaServiceFactory
+               .GetKafkaConsumerMenager(
+               kafkaOptions.Consumers[0],
+               kafkaOptions.Settings.BootstrapServer
+               );
+
+            KafkaProducerService kafkaProducerService = new KafkaProducerService(
+                kafkaOptions.Settings,
+                kafkaOptions.Producers[0]
+                );
+
+            return new KafkaGasService(consumerMenager, kafkaProducerService);
         }
     }
 }

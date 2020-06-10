@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Application\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\KafkaService\KafkaService.csproj" />
     <ProjectReference Include="..\StateMachineDataAccess\StateMachineDataAccess.csproj" />
   </ItemGroup>
