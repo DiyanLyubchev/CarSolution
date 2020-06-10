@@ -31,11 +31,11 @@ namespace CarMsSolution
             });
             string connString = Configuration["Connection_String"];
             services.AddDbContext<StateMachineDbContext>(options => options.UseOracle(connString));
-
-
-            services.ResolveKafka();
             services.ResolveServices();
+
+
             services.Configure<KafkaOptions>(Configuration.GetSection("KafkaOptions"));
+            services.ResolveKafka();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
