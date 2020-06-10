@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks;
 
 namespace KafkaService.Common
 {
-    interface IKafkaConsumer
+    public interface IKafkaConsumer
     {
+        Task ProccessMessage(KafkaOptions kafkaOptions, IServiceScope scope, string value);
     }
 }
