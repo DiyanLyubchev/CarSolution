@@ -1,9 +1,11 @@
 ﻿using Domain.Contracts;
 using Domain.Model;
+using KafkaManagerService.Adaptor;
 using KafkaService;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace KafkaManagerService.Services
@@ -12,25 +14,56 @@ namespace KafkaManagerService.Services
     {
         private KafkaConsumerMenager consumerMenager;
         private KafkaProducerService KafkaProducerService;
+        private KafkaAdaptor KafkaAdaptor;
+
         public KafkaDieselServise(KafkaConsumerMenager consumerMenager, KafkaProducerService kafkaProducerService)
         {
             this.consumerMenager = consumerMenager;
-            KafkaProducerService = kafkaProducerService;
+            this.KafkaProducerService = kafkaProducerService;
+
+            this.KafkaAdaptor = new KafkaAdaptor();
         }
 
-        public Task<int> AddNewCar(CarViewModel carView)
+        public Task<int> AddNewCar(CarViewModel car)
         {
-            throw new NotImplementedException();
+            string msgCar = null;
+
+            string protocol = KafkaAdaptor.GetAddNewProtocol(car);
+            Task taskCar = KafkaProducerService.ProduceMessageAsync(protocol);
+
+            Task<int> taskCar2 = taskCar.ContinueWith(task =>
+            {
+                msgCar = consumerMenager.GetMessage();
+
+                var currentId = JsonSerializer.Deserialize<int>(msgCar);
+                return currentId;
+            });
+
+            return taskCar2;
         }
 
         public Task<List<CarViewModel>> GetDieselCarAsync()
         {
-            throw new NotImplementedException();
+            string msgCar = null;
+
+            string protocol = KafkaAdaptor.GetQueryProtocol();
+            Task taskCar = KafkaProducerService.ProduceMessageAsync(protocol);
+
+            Task<List<CarViewModel>> taskCar2 = taskCar.ContinueWith(task =>
+            {
+                msgCar = consumerMenager.GetMessage();
+
+                List<CarViewModel> cars = KafkaAdaptor.GetCars(msgCar);
+                return cars;
+            });
+
+            return taskCar2;
         }
 
-        public Task RemoveDieselCarAsync(int carId)
+        public async Task RemoveDieselCarAsync(int carId)
         {
-            throw new NotImplementedException();
+            var message = JsonSerializer.Serialize(carId);
+            await KafkaProducerService.ProduceMessageAsync(message);
         }
     }
 }
