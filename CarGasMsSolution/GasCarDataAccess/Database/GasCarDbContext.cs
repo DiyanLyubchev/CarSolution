@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 
 namespace GasCarDataAccess.Database
 {
@@ -19,4 +20,3 @@ namespace GasCarDataAccess.Database
         }
     }
 }
-
