@@ -5,7 +5,7 @@ namespace StateMachineDataAccess.Database
     public class StateMachineDbContext : DbContext
     {
         public StateMachineDbContext(DbContextOptions<StateMachineDbContext> options)
-            :base(options)
+            : base(options)
         {
 
         }

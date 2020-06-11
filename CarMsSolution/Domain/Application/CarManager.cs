@@ -1,9 +1,9 @@
 ﻿using Domain.Contracts;
 using Domain.Model;
 using StateMachineDataAccess.DbManager;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System;
 
 namespace Domain.Application
 {
@@ -79,3 +79,4 @@ namespace Domain.Application
         }
     }
 }
+

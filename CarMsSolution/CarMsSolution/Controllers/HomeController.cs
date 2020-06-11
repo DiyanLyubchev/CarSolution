@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using CarMsSolution.Models;
 using Domain.Application;
 using Domain.Model;
@@ -52,9 +53,8 @@ namespace CarMsSolution.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            
-        }
 
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

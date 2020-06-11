@@ -1,7 +1,6 @@
 ﻿using Domain.Application;
 using Domain.Contracts;
 using KafkaManagerService;
-using KafkaService;
 using KafkaService.Common;
 using Microsoft.Extensions.DependencyInjection;
 using StateMachineDataAccess.DbManager;
@@ -25,7 +24,7 @@ namespace CarMsSolution.Extentions
         {
             services.AddScoped<IKafkaServiceFactory, KafkaServiceFactory>();
             services.AddScoped<IServiceFactory, KafkaFactory>();
-              
+
             return services;
         }
     }

@@ -16,21 +16,21 @@ namespace KafkaService
             this.kafkaConsumer = kafkaConsumer;
             this.kafkaBoostrapServer = kafkaBoostrapServer;
 
-            config = new ConsumerConfig 
+            config = new ConsumerConfig
             {
-                 GroupId = kafkaConsumer.GroupId,
-                 ClientId =kafkaConsumer.ClientId,
-                 BootstrapServers = kafkaBoostrapServer,
-                 AutoOffsetReset = AutoOffsetReset.Latest
+                GroupId = kafkaConsumer.GroupId,
+                ClientId = kafkaConsumer.ClientId,
+                BootstrapServers = kafkaBoostrapServer,
+                AutoOffsetReset = AutoOffsetReset.Latest
             };
         }
 
 
-        public string GetMessage() 
+        public string GetMessage()
         {
             string message = null;
 
-            using (var c = new ConsumerBuilder<Ignore,string>(config)
+            using (var c = new ConsumerBuilder<Ignore, string>(config)
                 .SetErrorHandler((_, e) => Console.WriteLine($"Error: {e.Reason}"))
                 .SetStatisticsHandler((_, json) => Console.WriteLine($"Statistics: {json}"))
                 .Build())
