@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace DieselCarDataAccess.Database
 {
     public class DieselCarDbContext : DbContext
     {
         public DieselCarDbContext(DbContextOptions<DieselCarDbContext> options)
-            :base(options)
+            : base(options)
         {
 
         }

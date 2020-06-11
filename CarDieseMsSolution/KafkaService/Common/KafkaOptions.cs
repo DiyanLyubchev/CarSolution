@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace KafkaService.Common
@@ -15,13 +17,13 @@ namespace KafkaService.Common
         public KafkaServerSettings Settings { get; set; }
     }
 
-    public class KafkaServerSettings 
+    public class KafkaServerSettings
     {
         [JsonPropertyName("BootstrapServer")]
         public string BootstrapServer { get; set; }
     }
 
-    public class KafkaProducer 
+    public class KafkaProducer
     {
         [JsonPropertyName("Topic")]
         public string Topic { get; set; }
@@ -33,7 +35,7 @@ namespace KafkaService.Common
         public string Description { get; set; }
     }
 
-    public class KafkaConsumer 
+    public class KafkaConsumer
     {
         [JsonPropertyName("Topic")]
         public string Topic { get; set; }

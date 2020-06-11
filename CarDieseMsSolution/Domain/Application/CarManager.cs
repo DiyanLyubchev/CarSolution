@@ -4,9 +4,7 @@ using Domain.Adaptors;
 using Domain.CustomException;
 using Domain.Factory;
 using Domain.Model;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.Application

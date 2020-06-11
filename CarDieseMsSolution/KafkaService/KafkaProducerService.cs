@@ -13,7 +13,8 @@ namespace KafkaService
         public KafkaProducerService(KafkaServerSettings serverSettings, KafkaProducer producer)
         {
             this.producer = producer;
-            config = new ProducerConfig { 
+            config = new ProducerConfig
+            {
                 BootstrapServers = serverSettings.BootstrapServer,
                 ClientId = "diesel"
             };
@@ -26,14 +27,15 @@ namespace KafkaService
 
         public async Task ProduceMessageAsync(string value)
         {
-            using (var produce = new ProducerBuilder<string,string>(config).Build())
+            using (var produce = new ProducerBuilder<string, string>(config).Build())
             {
                 Console.WriteLine($"Pruducing async on {producer.Topic}, {produce.Name}: {value}");
                 try
                 {
                     var dr = await produce.ProduceAsync(
                         producer.Topic,
-                        new Message<string, string> {
+                        new Message<string, string>
+                        {
                             Value = value,
                             Key = producer.Key
                         });
@@ -49,3 +51,4 @@ namespace KafkaService
         }
     }
 }
+

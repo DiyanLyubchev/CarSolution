@@ -74,7 +74,7 @@ namespace KafkaService
                     {
                     }
                     catch (Exception)
-                    { 
+                    {
                     }
                 }
                 consumer.Close();
