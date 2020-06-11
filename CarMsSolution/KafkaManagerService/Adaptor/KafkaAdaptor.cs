@@ -1,9 +1,7 @@
 ﻿using Domain.Model;
 using KafkaManagerService.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
 
 namespace KafkaManagerService.Adaptor
@@ -50,11 +48,11 @@ namespace KafkaManagerService.Adaptor
 
         private List<CarViewModel> Mapp(List<KpCarModel> list)
         {
-            return list.Select(car => new CarViewModel 
+            return list.Select(car => new CarViewModel
             {
-                 CarBrand = car.CarBrand,
-                  CarModel =car.CarModel,
-                  EngineType = car.EngineType
+                CarBrand = car.CarBrand,
+                CarModel = car.CarModel,
+                EngineType = car.EngineType
             }).ToList();
         }
 

@@ -2,7 +2,9 @@
 using Domain.Model;
 using KafkaManagerService.Adaptor;
 using KafkaService;
+using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
