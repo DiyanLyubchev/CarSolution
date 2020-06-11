@@ -2,6 +2,7 @@
 using KafkaService.Common;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Threading;
@@ -13,10 +14,13 @@ namespace KafkaService
     {
         private readonly KafkaOptions kafkaOptions;
         private readonly IServiceProvider serviceProvider;
+        private readonly ILogger<KafkaConsumerService> logger;
         private ConsumerConfig conf;
         private KafkaConsumer KafkaConsumer;
 
-        public KafkaConsumerService(IOptions<KafkaOptions> kafkaOptions, IServiceProvider serviceProvider)
+        public KafkaConsumerService(IOptions<KafkaOptions> kafkaOptions,
+            ILogger<KafkaConsumerService> logger,
+            IServiceProvider serviceProvider)
         {
             KafkaConsumer = kafkaOptions.Value.Consumers[0];
             conf = new ConsumerConfig

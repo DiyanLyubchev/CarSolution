@@ -16,7 +16,6 @@ namespace CarMsSolution.Extentions
     {
         public static IServiceCollection ResolveServices(this IServiceCollection services)
         {
-            //services.AddScoped<IFactory, Factory>();
             services.AddScoped<ICarManager, CarManager>();
             services.AddScoped<IStateMachineDbManager, StateMachineDbManager>();
             return services;
