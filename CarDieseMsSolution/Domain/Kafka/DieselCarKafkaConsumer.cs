@@ -45,7 +45,7 @@ namespace Domain.Kafka
                         break;
 
                     case "ADD_CAR":
-                        await this.ProccessAddCar(kafkaProtocol.Data[0] , producerService);
+                        await this.ProccessAddCar(kafkaProtocol.Data[0], producerService);
                         break;
 
                 }
@@ -79,13 +79,13 @@ namespace Domain.Kafka
 
             List<KpCarModel> cars = this.adaptor.MappCarViewModel(allCars);
 
-            KafkaProtocolModel kafkaProtocol = new KafkaProtocolModel 
+            KafkaProtocolModel kafkaProtocol = new KafkaProtocolModel
             {
-                Data= cars,
-                Heap = new KpHeapModel 
+                Data = cars,
+                Heap = new KpHeapModel
                 {
-                     Action = "Result",
-                     Version = "1"
+                    Action = "Result",
+                    Version = "1"
                 }
             };
 

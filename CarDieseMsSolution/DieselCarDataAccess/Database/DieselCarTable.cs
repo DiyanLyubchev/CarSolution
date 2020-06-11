@@ -9,7 +9,7 @@ namespace DieselCarDataAccess.Database
         [Key]
         [Column("ID")]
         public int Id { get; set; }
-   
+
         [Column("CARMODEL")]
         public string CarModel { get; set; }
 
