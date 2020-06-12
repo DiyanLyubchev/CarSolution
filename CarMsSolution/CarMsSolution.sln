@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMsSolution", "CarMsSolution\CarMsSolution.csproj", "{60110F59-51C8-4AB1-9675-8B79FC01AE61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarMsSolution", "CarMsSolution\CarMsSolution.csproj", "{60110F59-51C8-4AB1-9675-8B79FC01AE61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaService", "KafkaService\KafkaService.csproj", "{E2F15A4A-ED63-41A9-A9EC-6342ED4ACB7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaService", "KafkaService\KafkaService.csproj", "{E2F15A4A-ED63-41A9-A9EC-6342ED4ACB7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMachineDataAccess", "StateMachineDataAccess\StateMachineDataAccess.csproj", "{3E397896-F127-4485-9BFF-D0F69254E863}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateMachineDataAccess", "StateMachineDataAccess\StateMachineDataAccess.csproj", "{3E397896-F127-4485-9BFF-D0F69254E863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{8EC27E45-F0F3-4B81-ADAD-1EDC239F50C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{8EC27E45-F0F3-4B81-ADAD-1EDC239F50C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaManagerService", "KafkaManagerService\KafkaManagerService.csproj", "{BB9525A6-8E06-45A1-A3D9-19B0F669469D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaManagerService", "KafkaManagerService\KafkaManagerService.csproj", "{BB9525A6-8E06-45A1-A3D9-19B0F669469D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiService", "WebApiService\WebApiService.csproj", "{BDA5B15A-0E96-4454-87BC-CAB483748D18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BB9525A6-8E06-45A1-A3D9-19B0F669469D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB9525A6-8E06-45A1-A3D9-19B0F669469D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB9525A6-8E06-45A1-A3D9-19B0F669469D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDA5B15A-0E96-4454-87BC-CAB483748D18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA5B15A-0E96-4454-87BC-CAB483748D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA5B15A-0E96-4454-87BC-CAB483748D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA5B15A-0E96-4454-87BC-CAB483748D18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\KafkaManagerService\KafkaManagerService.csproj" />
+    <ProjectReference Include="..\WebApiService\WebApiService.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApiService;
 
 namespace CarMsSolution.Extentions
 {
@@ -17,14 +18,14 @@ namespace CarMsSolution.Extentions
         {
             services.AddScoped<ICarManager, CarManager>();
             services.AddScoped<IStateMachineDbManager, StateMachineDbManager>();
+            services.AddScoped<IServiceFactory, WebServiceFactory>();
             return services;
         }
 
         public static IServiceCollection ResolveKafka(this IServiceCollection services)
         {
             services.AddScoped<IKafkaServiceFactory, KafkaServiceFactory>();
-            services.AddScoped<IServiceFactory, KafkaFactory>();
-
+            // services.AddScoped<IServiceFactory, KafkaFactory>();
             return services;
         }
     }

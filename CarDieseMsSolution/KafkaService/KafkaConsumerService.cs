@@ -14,7 +14,7 @@ namespace KafkaService
     {
         private readonly KafkaOptions kafkaOptions;
         private readonly IServiceProvider serviceProvider;
-        ILogger<KafkaConsumerService> logger;
+        private readonly ILogger<KafkaConsumerService> logger;
         private ConsumerConfig conf;
         private KafkaConsumer KafkaConsumer;
 

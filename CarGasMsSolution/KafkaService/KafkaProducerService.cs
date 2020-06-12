@@ -16,7 +16,7 @@ namespace KafkaService
             config = new ProducerConfig
             {
                 BootstrapServers = serverSettings.BootstrapServer,
-                ClientId = "diesel"
+                ClientId = "gas"
             };
 
             if (string.IsNullOrEmpty(producer.Key))

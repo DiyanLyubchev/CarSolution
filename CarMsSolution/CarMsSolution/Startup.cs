@@ -1,17 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CarMsSolution.Extentions;
 using KafkaService.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StateMachineDataAccess.Database;
+using WebApiService.Services.Common;
 
 namespace CarMsSolution
 {
@@ -29,6 +25,7 @@ namespace CarMsSolution
         {
             string connString = Configuration["Connection_String"];
             services.AddDbContext<StateMachineDbContext>(options => options.UseOracle(connString));
+            services.Configure<ServiceOptions>(Configuration.GetSection("ServiceOptions"));
             services.ResolveServices();
 
 
