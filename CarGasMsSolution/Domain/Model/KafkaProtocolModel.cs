@@ -6,11 +6,11 @@ namespace Domain.Model
     {
         public KafkaProtocolModel()
         {
-            Heap = new KpHeapModel();
+            Head = new KpHeapModel();
             Data = new List<KpCarModel>();
         }
 
-        public KpHeapModel Heap { get; set; }
+        public KpHeapModel Head { get; set; }
         public List<KpCarModel> Data { get; set; }
     }
 

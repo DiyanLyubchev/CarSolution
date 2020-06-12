@@ -21,7 +21,7 @@ namespace KafkaService
                 GroupId = kafkaConsumer.GroupId,
                 ClientId = kafkaConsumer.ClientId,
                 BootstrapServers = kafkaBoostrapServer,
-                AutoOffsetReset = AutoOffsetReset.Latest
+                AutoOffsetReset = AutoOffsetReset.Earliest
             };
         }
 

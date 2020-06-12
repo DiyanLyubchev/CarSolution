@@ -34,11 +34,16 @@ namespace Domain.Kafka
                 kafkaOptions.Producers[0]
                 );
 
-            if (message.Length > 10)
+            if (int.TryParse(message, out int carId))
+            {
+
+                await this.RemoveCar(carId);
+            }
+            else
             {
                 KafkaProtocolModel kafkaProtocol = this.GetProtocol(message);
 
-                switch (kafkaProtocol.Heap.Action)
+                switch (kafkaProtocol.Head.Action)
                 {
                     case "QUERY":
                         await this.ProcessQuery(producerService);
@@ -49,11 +54,7 @@ namespace Domain.Kafka
                         break;
 
                 }
-            }
-            else
-            {
-                var carID = int.Parse(message);
-                await this.RemoveCar(carID);
+
             }
         }
 
@@ -82,7 +83,7 @@ namespace Domain.Kafka
             KafkaProtocolModel kafkaProtocol = new KafkaProtocolModel
             {
                 Data = cars,
-                Heap = new KpHeapModel
+                Head = new KpHeapModel
                 {
                     Action = "Result",
                     Version = "1"
