@@ -32,7 +32,7 @@ namespace CarDieseMsSolution
             services.AddControllers();
 
             string connString = Configuration["Connection_String"];
-            services.AddDbContext<DieselCarDbContext>(options => options.UseOracle(connString));
+            services.AddDbContext<DieselCarDbContext>(options => options.UseSqlServer(connString));
             services.ResolveServices();
 
             services.Configure<KafkaOptions>(Configuration.GetSection("KafkaOptions"));

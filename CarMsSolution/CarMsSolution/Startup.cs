@@ -24,7 +24,7 @@ namespace CarMsSolution
         public void ConfigureServices(IServiceCollection services)
         {
             string connString = Configuration["Connection_String"];
-            services.AddDbContext<StateMachineDbContext>(options => options.UseOracle(connString));
+            services.AddDbContext<StateMachineDbContext>(options => options.UseSqlServer(connString));
             services.Configure<ServiceOptions>(Configuration.GetSection("ServiceOptions"));
             services.ResolveServices();
 

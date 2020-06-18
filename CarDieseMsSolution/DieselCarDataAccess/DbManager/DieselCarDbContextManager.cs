@@ -16,9 +16,9 @@ namespace DieselCarDataAccess.DbManager
 
         public async Task<int> AddNewCarAsync(DieselCarTable car)
         {
-            int carId = await this.GetNextValueAsync();
+           // int carId = await this.GetNextValueAsync();
 
-            car.Id = carId;
+          //  car.Id = carId;
 
             var newCar = await this.context.DieselCars.AddAsync(car);
             await this.context.SaveChangesAsync();

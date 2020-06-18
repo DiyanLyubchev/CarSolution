@@ -16,11 +16,11 @@ namespace StateMachineDataAccess.DbManager
 
         public async Task<int> CreateStateMachineAsync()
         {
-            var id = await this.GetNextValueAsync();
+           // var id = await this.GetNextValueAsync();
 
             var stateMAchine = new StateMachineTable
             {
-                Id = id,
+               // Id = id,
                 State = 'P'
             };
 
