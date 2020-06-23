@@ -1,0 +1,19 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: dieselms-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+       name: diesel-app
+  template:
+    metadata:
+      name: diesel-app
+      labels:
+        name: diesel-app 
+    spec: 
+      containers:
+       - name: diesel-app
+         image: dieselcarms:dev-1.0.0   
+ 

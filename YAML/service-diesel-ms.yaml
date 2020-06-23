@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dieselms
+spec:
+  type: NodePort
+  selector:
+    name: diesel-app
+  ports:
+  - port: 80
+    nodePort: 30006
+    targetPort: 80
+    name: unsecure
+  - port: 443
+    nodePort: 30007
+    targetPort: 443
+    name: secure 

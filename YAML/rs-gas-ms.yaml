@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: gasms-app-rs
+  labels:
+    type: gas-ms
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: gasms-app
+  template:
+    metadata:
+      name: gasms-app
+      labels:
+        name: gasms-app
+    spec:
+      containers:
+        - name: gasms-app
+          image: gascarms:dev-1.0.0
+         
+

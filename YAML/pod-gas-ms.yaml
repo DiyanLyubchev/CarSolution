@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gasms-app
+  labels:
+    name: gasms-app
+spec:
+  containers:
+  - name: gasms-app
+    image: gascarms:dev-1.0.0
+   

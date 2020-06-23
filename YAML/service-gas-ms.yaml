@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gasms
+spec:
+  type: NodePort
+  selector:
+    name: gasms-app
+  ports:
+  - port: 80
+    nodePort: 30008
+    targetPort: 80
+    name: unsecure
+  - port: 443
+    nodePort: 30009
+    targetPort: 443
+    name: secure  
