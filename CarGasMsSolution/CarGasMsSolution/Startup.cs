@@ -30,8 +30,7 @@ namespace CarGasMsSolution
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            string connString = Configuration["Connection_String"];
-            services.AddDbContext<GasCarDbContext>(options => options.UseSqlServer(connString));
+            services.AddDataBase<GasCarDbContext>(this.Configuration);
             services.ResolveServices();
 
             services.Configure<KafkaOptions>(Configuration.GetSection("KafkaOptions"));

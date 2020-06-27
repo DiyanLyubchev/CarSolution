@@ -3,6 +3,8 @@ using Domain.Factory;
 using Domain.Kafka;
 using KafkaService;
 using KafkaService.Common;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CarGasMsSolution.Extentions
@@ -24,5 +26,12 @@ namespace CarGasMsSolution.Extentions
 
             return services;
         }
+
+        public static IServiceCollection AddDataBase<TDbContext>(
+            this IServiceCollection services, IConfiguration configuration)
+            where TDbContext : DbContext
+            => services
+            .AddDbContext<TDbContext>(options => 
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))); 
     }
 }
